@@ -23,7 +23,7 @@ namespace Advent_of_Code
                     currentSum += int.Parse(currentLine);
                     continue;
                 }
-                
+
                 maximum = Math.Max(currentSum, maximum);
                 currentSum = 0;
             }
@@ -36,10 +36,30 @@ namespace Advent_of_Code
 
         public void SolvePartTwo()
         {
-            if (buffer == null) buffer =  File.ReadAllLines(pathToInputFile, Encoding.UTF8);
+            if (buffer == null) buffer = File.ReadAllLines(pathToInputFile, Encoding.UTF8);
+            int topSumCount = 3;
 
-            Console.WriteLine("Done\n");
-            ConsoleExtensions.DisplayResult(0,0);
+            var sums = new SortedSet<int>();
+            var currentSum = 0;
+
+            foreach(string currentLine in buffer)
+            {
+                if (!string.IsNullOrEmpty(currentLine))
+                {
+                    currentSum += int.Parse(currentLine);                   
+                    continue;
+                }
+                
+                sums.Add(currentSum);
+                currentSum = 0;
+            }
+
+            sums.Add(currentSum);
+
+            var result = sums.Reverse().Take(topSumCount).Sum();
+
+            Console.WriteLine("Done");
+            ConsoleExtensions.DisplayResult(result, buffer.Length);
         }
     }
 }
