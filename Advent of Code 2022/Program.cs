@@ -2,7 +2,8 @@
 
 Dictionary<int, ITaskSolver> tasks = new()
 {
-    { 1, new Day1() }
+    { 1, new Day1() },
+    { 2, new Day2() }
 };
 
 Console.WriteLine("Choose day\n");
