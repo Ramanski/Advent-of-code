@@ -1,28 +1,27 @@
 ﻿using System.Text;
 
-namespace Advent_of_Code
+namespace Advent_of_Code;
+
+internal class Day : ITaskSolver
 {
-    internal class Day : ITaskSolver
+    public string GetTaskName() => "Day 2: Dive!";
+
+    private string[]? buffer;
+    private string pathToInputFile = @"input/task2.txt";
+
+    public void SolvePartOne()
     {
-        public string GetTaskName() => "Day 2: Dive!";
+        if (buffer == null) buffer = File.ReadAllLines(pathToInputFile, Encoding.UTF8);
 
-        private string[]? buffer;
-        private string pathToInputFile = @"input/task2.txt";
+        Console.WriteLine("Done");
+        ConsoleExtensions.DisplayResult(0,0);
+    }
 
-        public void SolvePartOne()
-        {
-            if (buffer == null) buffer = File.ReadAllLines(pathToInputFile, Encoding.UTF8);
+    public void SolvePartTwo()
+    {
+        if (buffer == null) buffer =  File.ReadAllLines(pathToInputFile, Encoding.UTF8);
 
-            Console.WriteLine("Done");
-            ConsoleExtensions.DisplayResult(0,0);
-        }
-
-        public void SolvePartTwo()
-        {
-            if (buffer == null) buffer =  File.ReadAllLines(pathToInputFile, Encoding.UTF8);
-
-            Console.WriteLine("Done\n");
-            ConsoleExtensions.DisplayResult(0,0);
-        }
+        Console.WriteLine("Done\n");
+        ConsoleExtensions.DisplayResult(0,0);
     }
 }
