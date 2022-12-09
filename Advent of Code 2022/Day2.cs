@@ -93,7 +93,8 @@ namespace Advent_of_Code
                 {
                     Result.Lose => ((int)opponentShape + 1) % 3 + 1,
                     Result.Draw => 3 + (int)opponentShape,
-                    Result.Win => 6 + ((int)opponentShape) % 3 + 1
+                    Result.Win => 6 + ((int)opponentShape) % 3 + 1,
+                    _ => throw new NotImplementedException()
                 };
             }
 
